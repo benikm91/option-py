@@ -3,7 +3,8 @@ from pyext.option.option import T, Option
 from pyext.option.some import Some
 
 
-oLift = Option.lift
+oLift = Option.lift_v
+oLiftF = Option.lift_f
 
 
 def some(value: T) -> Some[T]:

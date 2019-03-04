@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import TypeVar, Generic, Callable
 
-from pyext import some, none
+from pyext.option import some, none
 
 T = TypeVar('T')
 Out = TypeVar('Out')
@@ -14,8 +14,12 @@ class Option(Generic[T], ABC):
         pass
 
     @staticmethod
-    def lift(e, noneValue=None):
+    def lift_v(e: T, noneValue=None) -> 'Option[T]':
         return some(e) if e is not noneValue else none()
+
+    @staticmethod
+    def lift_f(e: T, f):
+        return some(e) if not f(e) else none()
 
     @abstractmethod
     def map(self, f: Callable[[T], Out]) -> 'Option[T]':
