@@ -1,8 +1,7 @@
 from typing import Callable
 from dataclasses import dataclass
 
-from pyext.collections.option import Option, T, Out
-
+from pyext.option.option import Option, T, Out
 
 @dataclass
 class _None(Option[None]):

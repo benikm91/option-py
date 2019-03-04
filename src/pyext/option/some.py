@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import Callable
 
-from pyext.collections.option import Option, T, Out
+from pyext.option.option import Option, T, Out
 
 
 @dataclass
