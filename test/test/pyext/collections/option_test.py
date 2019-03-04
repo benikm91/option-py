@@ -1,6 +1,6 @@
 import unittest
 
-from pyext import some, none
+from pyext.option import some, none
 
 
 class OptionTest(unittest.TestCase):
