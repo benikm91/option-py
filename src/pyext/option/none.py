@@ -24,5 +24,7 @@ class _None(Option[None]):
     def __eq__(self, other):
         return isinstance(other, _None)
 
+    def get_default(self, default: T) -> T:
+        return default
 
 _None._instance = _None()

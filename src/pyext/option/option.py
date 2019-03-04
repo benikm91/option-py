@@ -23,6 +23,10 @@ class Option(Generic[T], ABC):
     def get(self) -> None:
         pass
 
+    @abstractmethod
+    def get_default(self, default: T) -> T:
+        pass
+
 
 
 

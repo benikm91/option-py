@@ -24,3 +24,6 @@ class Some(Option[T]):
         if not isinstance(other, Some):
             return False
         return self.get() == other.get()
+
+    def get_default(self, default: T) -> T:
+        return self._value
