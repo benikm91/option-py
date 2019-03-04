@@ -5,6 +5,7 @@ from typing import TypeVar, Generic, Callable
 T = TypeVar('T')
 Out = TypeVar('Out')
 
+
 @dataclass
 class Option(Generic[T], ABC):
 
@@ -26,6 +27,11 @@ class Option(Generic[T], ABC):
     @abstractmethod
     def get_default(self, default: T) -> T:
         pass
+
+    @abstractmethod
+    def filter(self, f: Callable[[T], bool]) -> 'Option[T]':
+        pass
+
 
 
 

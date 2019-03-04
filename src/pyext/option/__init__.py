@@ -1,7 +1,7 @@
 from pyext.option.option import T, Option
 
-from pyext.option.some import Some
-from pyext.option.none import _None
+from pyext.option.some_impl import Some
+from pyext.option.none_impl import _None
 
 
 def oLift(e: T, noneValue=None) -> 'Option[T]':

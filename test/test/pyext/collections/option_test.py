@@ -30,3 +30,8 @@ class OptionTest(unittest.TestCase):
         x = none()
         x = x.flatmap(unreachable)
         self.assertEqual(x, none())
+
+    def testFilter(self):
+        x = some(0)
+        self.assertEqual(x, x.filter(lambda x: x != 0))
+        self.assertEqual(none(), x.filter(lambda x: x == 0))

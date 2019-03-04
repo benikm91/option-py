@@ -3,6 +3,7 @@ from dataclasses import dataclass
 
 from pyext.option.option import Option, T, Out
 
+
 @dataclass
 class _None(Option[None]):
 
@@ -13,18 +14,22 @@ class _None(Option[None]):
         assert _None._instance is None
 
     def map(self, f: Callable[[T], Out]) -> '_None':
-        return _None._instance
+        return self
 
     def flatmap(self, f: Callable[[T], Option[Out]]) -> '_None':
-        return _None._instance
+        return self
 
     def get(self) -> None:
         raise Exception
 
+    def get_default(self, default: T) -> T:
+        return default
+
+    def filter(self, f: Callable[[T], bool]) -> 'Option[T]':
+        return self
+
     def __eq__(self, other):
         return isinstance(other, _None)
 
-    def get_default(self, default: T) -> T:
-        return default
 
 _None._instance = _None()
